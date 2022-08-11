@@ -9,18 +9,19 @@ public class GamblingSimulator {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Gambling Simulator");
 		int currentBalance=PLAYER_BALANCE;
+		while (currentBalance>50 && currentBalance<150) {
+			int choice=(int)(Math.random()*10%2);
 
-		int choice=(int)(Math.random()*10%2);
+			switch(choice) {
+			case WON_BET:
+				currentBalance++;
+				break;
 
-		switch(choice) {
-		case WON_BET:
-			currentBalance++;
-			break;
-
-		case LOST_BET:
-			currentBalance--;
-			break;
+			case LOST_BET:
+				currentBalance--;
+				break;
+			}
+			System.out.println("Current Balance::"+currentBalance);
 		}
-		System.out.println("Stake amount:"+currentBalance);
 	}
 }
